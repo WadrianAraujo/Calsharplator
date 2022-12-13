@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ namespace Calculadora
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
+        decimal valor1, valor2;
+        string operation;
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +32,35 @@ namespace Calculadora
 
         private void button11_Click(object sender, EventArgs e)
         {
+            valor2 = decimal.Parse(TxtResult.Text, CultureInfo.InvariantCulture);
 
+            if (operation == "addition")
+            {
+                TxtResult.Text = Convert.ToString(valor1+valor2);
+            }else if (operation == "subtraction")
+            {
+                TxtResult.Text = Convert.ToString(valor1-valor2);
+            }
+            else if (operation == "multiplication")
+            {
+                TxtResult.Text = Convert.ToString(valor1 * valor2);
+            }
+            else if (operation == "division")
+            {
+                
+            }
+
+            /*switch(operation)
+            {
+                case "division":
+                    TxtResult.Text = Convert.ToString(valor1 / valor2);
+                    break;
+                case "multiplication":
+                    TxtResult.Text = Convert.ToString(valor1 * valor2);
+                    break;
+                case "division":
+                    TxtResult.Text = Convert.ToString(valor1 - valor2);
+            }*/
         }
 
         private void button19_Click(object sender, EventArgs e)
@@ -80,6 +111,43 @@ namespace Calculadora
         private void button3_Click(object sender, EventArgs e)
         {
             TxtResult.Text += "9";
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            valor1 = decimal.Parse(TxtResult.Text,CultureInfo.InvariantCulture);
+            TxtResult.Text = "";
+            operation = "addition";
+            LblOperation.Text = "+";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            valor1 = decimal.Parse(TxtResult.Text, CultureInfo.InvariantCulture);
+            TxtResult.Text = "";
+            operation = "division";
+            LblOperation.Text = "/";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            valor1 = decimal.Parse(TxtResult.Text, CultureInfo.InvariantCulture);
+            TxtResult.Text = "";
+            operation = "multiplication";
+            LblOperation.Text = "X";
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            valor1 = decimal.Parse(TxtResult.Text, CultureInfo.InvariantCulture);
+            TxtResult.Text = "";
+            operation = "subtraction";
+            LblOperation.Text = "-";
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            TxtResult.Text += ".";
         }
     }
 }

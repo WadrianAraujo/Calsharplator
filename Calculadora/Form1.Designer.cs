@@ -113,6 +113,7 @@
             this.button5.TabIndex = 6;
             this.button5.Text = "CE";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -123,6 +124,7 @@
             this.button6.TabIndex = 11;
             this.button6.Text = "C";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -265,6 +267,7 @@
             this.TxtResult.Name = "TxtResult";
             this.TxtResult.Size = new System.Drawing.Size(349, 49);
             this.TxtResult.TabIndex = 0;
+            this.TxtResult.Text = "0";
             this.TxtResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtResult.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 

@@ -20,9 +20,10 @@ namespace Calculadora
             InitializeComponent();
         }
 
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,24 +34,7 @@ namespace Calculadora
         private void button11_Click(object sender, EventArgs e)
         {
             valor2 = decimal.Parse(TxtResult.Text, CultureInfo.InvariantCulture);
-
-            if (operation == "addition")
-            {
-                TxtResult.Text = Convert.ToString(valor1+valor2);
-            }else if (operation == "subtraction")
-            {
-                TxtResult.Text = Convert.ToString(valor1-valor2);
-            }
-            else if (operation == "multiplication")
-            {
-                TxtResult.Text = Convert.ToString(valor1 * valor2);
-            }
-            else if (operation == "division")
-            {
-                
-            }
-
-            /*switch(operation)
+            switch(operation)
             {
                 case "division":
                     TxtResult.Text = Convert.ToString(valor1 / valor2);
@@ -58,9 +42,13 @@ namespace Calculadora
                 case "multiplication":
                     TxtResult.Text = Convert.ToString(valor1 * valor2);
                     break;
-                case "division":
+                case "subtraction":
                     TxtResult.Text = Convert.ToString(valor1 - valor2);
-            }*/
+                    break;
+                case "addition":
+                    TxtResult.Text = Convert.ToString(valor1 * valor2);
+                    break;
+            }
         }
 
         private void button19_Click(object sender, EventArgs e)
@@ -143,6 +131,20 @@ namespace Calculadora
             TxtResult.Text = "";
             operation = "subtraction";
             LblOperation.Text = "-";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            TxtResult.Text = " ";
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            valor1 = 0;
+            valor2 = 0;
+            TxtResult.Text = "";
+            LblOperation.Text = "";
+            operation = "";
         }
 
         private void button18_Click(object sender, EventArgs e)
